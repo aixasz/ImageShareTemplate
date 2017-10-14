@@ -6,6 +6,7 @@ namespace ImageShareTemplate.ImageProvider
 {
     public interface IImageProvider
     {
+        ImageSize Size { get; set; }
         int X { get; }
         int Y { get; }
     }
