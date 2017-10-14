@@ -8,6 +8,6 @@ namespace ImageShareTemplate
 {
     public interface IBlockImage : IBlock
     {
-        void LoadImage(string src, SourceType sourceType);
+        byte[] Data { get; }
     }
 }
