@@ -3,9 +3,9 @@ using System.Collections.Generic;
 using System.Text;
 using SixLabors.ImageSharp;
 
-namespace ImageShareTemplate.Block
+namespace ImageShareTemplate
 {
-    public class BlockText : IBlockText
+    public class BlockText : Block, IBlockText
     {
         public string Text { get; }
 
@@ -13,8 +13,5 @@ namespace ImageShareTemplate.Block
         {
             Text = text;
         }
-
-        public Rgba32 BackgroundColor { set; get; } = Rgba32.Transparent;
-
     }
 }
