@@ -446,3 +446,4 @@ obj/
 
 # End of https://www.gitignore.io/api/csharp,visualstudio,xamarinstudio,visualstudiocode
 .DS_Store
+*.cache
