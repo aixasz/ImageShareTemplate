@@ -6,7 +6,6 @@ namespace ImageShareTemplate
 {
     public interface IBlockText : IBlock
     {
-        public string Text { get; }
-             
+        string Text { get; }
     }
 }
