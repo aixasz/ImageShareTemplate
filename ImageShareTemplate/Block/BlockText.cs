@@ -7,13 +7,14 @@ namespace ImageShareTemplate.Block
 {
     public class BlockText : IBlockText
     {
-        private string _text;
+        public string Text { get; }
 
-        public Rgba32 BackgroundColor { set; get; }
-
-        public void SetText(string text)
+        public BlockText(string text)
         {
-            _text = text;
+            Text = text;
         }
+
+        public Rgba32 BackgroundColor { set; get; } = Rgba32.Transparent;
+
     }
 }

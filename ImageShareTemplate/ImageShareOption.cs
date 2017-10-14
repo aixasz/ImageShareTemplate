@@ -1,4 +1,5 @@
-﻿using System;
+﻿using ImageShareTemplate.ImageProvider;
+using System;
 using System.Collections.Generic;
 using System.Text;
 
@@ -21,6 +22,7 @@ namespace ImageShareTemplate
         public IBlock Block4 { get; set; }
 
         public string MainImagePath { get; set; }
+        public IImageProvider ImageProvider { get; set; }
 
     }
 }
