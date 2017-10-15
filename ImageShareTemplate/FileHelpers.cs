@@ -1,5 +1,4 @@
-﻿using System;
-using System.IO;
+﻿using System.IO;
 using System.Net;
 
 namespace ImageShareTemplate
@@ -13,32 +12,26 @@ namespace ImageShareTemplate
 
         public static byte[] LoadImageFromUrl(string url)
         {
-            Stream stream = null;
-            byte[] result;
-
             try
             {
-                var webProxy = new WebProxy();
                 var request = (HttpWebRequest)WebRequest.Create(url);
 
-                var response = (HttpWebResponse)request.GetResponse();
-                stream = response.GetResponseStream();
-
-                using (var binaryReader = new BinaryReader(stream))
+                using (var response = (HttpWebResponse) request.GetResponse())
                 {
-                    var contentLenght = (int)(response.ContentLength);
-                    result = binaryReader.ReadBytes(contentLenght);
+                    using (var stream = response.GetResponseStream())
+                    {
+                        using (var binaryReader = new BinaryReader(stream))
+                        {
+                            var contentLenght = (int)response.ContentLength;
+                            return binaryReader.ReadBytes(contentLenght);
+                        }
+                    }    
                 }
-
-                stream.Close();
-                response.Close();
             }
-            catch (Exception ex)
+            catch
             {
-                result = null;
+                return null;
             }
-
-            return result;
         }
     }
 }
