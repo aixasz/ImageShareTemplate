@@ -1,28 +1,20 @@
-﻿using System.IO;
-using System.Net;
-
-namespace ImageShareTemplate
+﻿namespace ImageShareTemplate
 {
     public class BlockImage : Block, IBlockImage
     {
         public byte[] Data { get; }
 
-        public BlockImage(string src, SourceType sourceType)
+        public BlockImage(string src)
         {
+            var sourceType = GetSourceType(src);
             Data = sourceType == SourceType.Url
-                ? LoadImageFromUrl(src)
-                : LoadImageFormPath(src);
+                ? FileHelpers.LoadImageFromUrl(src)
+                : FileHelpers.LoadImageFormPath(src);
         }
 
-        private byte[] LoadImageFormPath(string src)
+        private SourceType GetSourceType(string src)
         {
-            return File.ReadAllBytes(src);
-        }
-
-        private byte[] LoadImageFromUrl(string src)
-        {
-            var webClient = new WebClient();
-            return webClient.DownloadData(src);
+            return src.Contains("http") ? SourceType.Url : SourceType.Path;
         }
     }
 }
