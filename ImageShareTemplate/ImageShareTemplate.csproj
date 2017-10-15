@@ -9,4 +9,8 @@
     <PackageReference Include="SixLabors.ImageSharp.Drawing" Version="1.0.0-beta0001" />
   </ItemGroup>
 
+  <ItemGroup>
+    <Folder Include="Fonts\" />
+  </ItemGroup>
+
 </Project>

@@ -1,11 +1,8 @@
 ﻿using ImageShareTemplate.ImageProvider;
-using System;
-using System.Collections.Generic;
-using System.Text;
 
 namespace ImageShareTemplate
 {
-    public class ImageShareOption
+    public class ShareOption
     {
         /// <summary>
         /// The proportion horizontal ratio. 
