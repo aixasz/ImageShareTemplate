@@ -7,6 +7,8 @@ ImageShareTemplate is image template library to share an image to social like fa
 # Coding Style
 We following [C# Coding style](https://github.com/dotnet/corefx/blob/master/Documentation/coding-guidelines/coding-style.md) from dotnet core coding guideline.
 
+# Release version
+- [1.0.0-alpha1](https://www.nuget.org/packages/ImageShareTemplate)
 
 # Example
 This will be result image after combine text and other like like logo and bring the main image as background.
