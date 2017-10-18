@@ -1,13 +1,8 @@
 ﻿using System;
-using System.Numerics;
 using SixLabors.Fonts;
 using SixLabors.ImageSharp;
 using SixLabors.ImageSharp.Drawing;
-using SixLabors.ImageSharp.Drawing.Brushes;
-using SixLabors.ImageSharp.PixelFormats;
-using SixLabors.ImageSharp.Processing;
 using SixLabors.Primitives;
-using SixLabors.Shapes;
 using System.IO;
 
 namespace ImageShareTemplate
