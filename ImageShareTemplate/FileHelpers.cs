@@ -25,7 +25,7 @@ namespace ImageShareTemplate
                             var contentLenght = (int)response.ContentLength;
                             return binaryReader.ReadBytes(contentLenght);
                         }
-                    }    
+                    }   
                 }
             }
             catch
