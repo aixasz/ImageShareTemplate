@@ -18,15 +18,14 @@ namespace ImageShareTemplate
 
             try
             {
-                var webProxy = new WebProxy();
-                var request = (HttpWebRequest)WebRequest.Create(url);
+                var request = (HttpWebRequest) WebRequest.Create(url);
 
-                var response = (HttpWebResponse)request.GetResponse();
+                var response = (HttpWebResponse) request.GetResponse();
                 stream = response.GetResponseStream();
 
                 using (var binaryReader = new BinaryReader(stream))
                 {
-                    var contentLenght = (int)(response.ContentLength);
+                    var contentLenght = (int) response.ContentLength;
                     result = binaryReader.ReadBytes(contentLenght);
                 }
 
