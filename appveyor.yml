@@ -1,0 +1,9 @@
+version: 1.0.{build}
+image: Visual Studio 2017
+before_build:
+- cmd: dotnet restore
+build:
+  publish_wap_xcopy: true
+  verbosity: minimal
+test_script:
+- cmd: dotnet test ImageShareTemplate.Tests
