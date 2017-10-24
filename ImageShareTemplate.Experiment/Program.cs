@@ -29,7 +29,9 @@ namespace ImageShareTemplate.Experiment
                 Block3 = imageBlockItem,
                 RatioX = 0.6, // 60%
                 RatioY = 0.6, // 60%
-                ImageSource = bytes
+                ImageSource = bytes,
+                FontFamily = "Tahoma",
+                FontSize = 56
             };
 
             var result = Convert.FromBase64String(
@@ -39,6 +41,18 @@ namespace ImageShareTemplate.Experiment
             using (var image = Image.Load(result))
             {
                 image.Save("output.jpeg");
+            }
+
+            options.FontProvider = new GoogleFontDownloader();
+            options.FontFamily = "Inconsolata";
+
+            result = Convert.FromBase64String(
+                ShareTemplate.CreateAsBase64String(options).Split(',')[1]
+            );
+
+            using (var image = Image.Load(result))
+            {
+                image.Save("output2.jpeg");
             }
         }
     }

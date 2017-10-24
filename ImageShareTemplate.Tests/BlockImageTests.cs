@@ -11,7 +11,7 @@ namespace ImageShareTemplate.Tests
         {
             return Data;
         }
-    }    
+    }
 
     public class BlockImageTests
     {
