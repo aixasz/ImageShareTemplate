@@ -17,4 +17,19 @@
     <ProjectReference Include="..\ImageShareTemplate\ImageShareTemplate.csproj" />
   </ItemGroup>
 
+  <ItemGroup>
+    <None Update="VerificationImages\TextInBlock1Wraps.bmp">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Update="VerificationImages\TextInBlock2Wraps.bmp">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Update="VerificationImages\TextInBlock3Wraps.bmp">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Update="VerificationImages\TextInBlock4Wraps.bmp">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+  </ItemGroup>
+
 </Project>
