@@ -2,15 +2,19 @@
 
   <PropertyGroup>
     <TargetFramework>netcoreapp2.0</TargetFramework>
+    <PackageId>ImageShareTemplate</PackageId>
+    <PackageVersion>1.0.0-alpha2</PackageVersion>
+    <Authors>Contributors : https://github.com/aixasz/ImageShareTemplate/graphs/contributors</Authors>
+    <Description>Image template library to share an image to social like facebook, twitter, etc. This library can add other image or some text to main image as background.</Description>
+    <PackageRequireLicenseAcceptance>false</PackageRequireLicenseAcceptance>
+    <PackageReleaseNotes>Support fonts, text wrapping</PackageReleaseNotes>
+    <Copyright>Copyright (c) 2017 Nattapong Nunpan</Copyright>
+    <PackageTags>image-library imagesharp image-template netcore2</PackageTags>
   </PropertyGroup>
 
   <ItemGroup>
     <PackageReference Include="SixLabors.ImageSharp" Version="1.0.0-beta0001" />
     <PackageReference Include="SixLabors.ImageSharp.Drawing" Version="1.0.0-beta0001" />
-  </ItemGroup>
-
-  <ItemGroup>
-    <Folder Include="Fonts\" />
   </ItemGroup>
 
 </Project>
