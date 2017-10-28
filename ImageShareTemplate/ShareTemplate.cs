@@ -45,15 +45,15 @@ namespace ImageShareTemplate
             var height = options.ImageProvider.Height;
             var width = options.ImageProvider.Width;
 
-            var x = width * options.RatioX;
-            var y = height * options.RatioY;
+            var x = width * Convert.ToSingle(options.RatioX);
+            var y = height * Convert.ToSingle(options.RatioY);
 
             var blockPoints = new[]
             {
-                (options.Block1, (0d, 0d)),
-                (options.Block2, (x, 0d)),
-                (options.Block3, (0d, y)),
-                (options.Block4, (x, y))
+                (options.Block1, new ImageDimension(0, 0, x, y)),
+                (options.Block2, new ImageDimension(x, 0, width, y)),
+                (options.Block3, new ImageDimension(0, y, x, height)),
+                (options.Block4, new ImageDimension(x, y, width, height))
             };
 
             Array.ForEach(blockPoints, _ =>
@@ -62,11 +62,9 @@ namespace ImageShareTemplate
 
                 if (block != null)
                 {
-                    var pointX = GetPointX(_);
-                    var pointY = GetPointY(_);
-
-                    var startX = pointX + block.PointX;
-                    var startY = pointY + block.PointY;
+                    var dimension = _.Item2;
+                    var startX = dimension.StartX + block.PointX;
+                    var startY = dimension.StartY + block.PointY;
 
                     switch (block)
                     {
@@ -75,6 +73,8 @@ namespace ImageShareTemplate
                             var pointF = new PointF(startX, startY);
                             source.DrawText(blockText.Text, font, Rgba32.White, pointF, new TextGraphicsOptions(true)
                             {
+                                //total available text area is width of box minus start of text
+                                WrapTextWidth = dimension.EndX - dimension.StartX - blockText.PointX,
                                 HorizontalAlignment = HorizontalAlignment.Left,
                                 VerticalAlignment = VerticalAlignment.Top
                             });
@@ -91,19 +91,34 @@ namespace ImageShareTemplate
             return source;
         }
 
-        private static float GetPointX((IBlock, (double, double)) _)
+        private static float GetPointX((IBlock, ImageDimension) _)
         {
-            return Convert.ToSingle(_.Item2.Item1);
+            return Convert.ToSingle(_.Item2.StartX);
         }
 
-        private static float GetPointY((IBlock, (double, double)) _)
+        private static float GetPointY((IBlock, ImageDimension) _)
         {
-            return Convert.ToSingle(_.Item2.Item2);
+            return Convert.ToSingle(_.Item2.StartY);
         }
 
-        private static IBlock GetBlock((IBlock, (double, double)) _)
+        private static IBlock GetBlock((IBlock, ImageDimension) _)
         {
             return _.Item1;
         }
+    }
+    class ImageDimension
+    {
+        public ImageDimension(float startY, float startX, float endX, float endY)
+        {
+            StartX = startY;
+            StartY = startX;
+            EndX = endX;
+            EndY = endY;
+        }
+
+        public float StartX { get; }
+        public float StartY { get; }
+        public float EndX { get; }
+        public float EndY { get; }
     }
 }
