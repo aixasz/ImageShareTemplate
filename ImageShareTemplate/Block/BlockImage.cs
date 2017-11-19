@@ -11,6 +11,11 @@
             Data = loader.Load(src);
         }
 
+        public BlockImage(byte[] data)
+        {
+            Data = data;
+        }
+
         public byte[] Data { get; }
     }
 }
